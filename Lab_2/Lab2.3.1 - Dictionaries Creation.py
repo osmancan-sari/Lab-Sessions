@@ -6,14 +6,23 @@ Part 3: Dictionaries
 In this part, we will investigate the dictionaries in Python.
 """
 
-lst1 = []
-lst2 = list()
-lst3 = [1, 2, 3]
-lst4 = ["itu", "1773"]
-lst5 = ["itu", 1773]
+dict0 = {}
+dict1 = {'name': 'Ali', 'age': 23, 'city': 'Istanbul'}
+dict2 = {'name': 'Ali', 'age': 23, 'city': 'Istanbul', 'age': 24}
+dict3 = dict({'name':'Ali', 'age':'23', 1:1})
+print(dict0)
+print(dict1)
+print(dict2)
+print(dict3)
 
-print(lst1)
-print(lst2)
-print(lst3)
-print(lst4)
-print(lst5)
+dict0["age"] = 23
+dict1["name"] = "Aylin"
+print(dict0)
+print(dict1)
+
+item = dict3.pop('name')
+print(item)
+print(dict3)
+
+dict3.clear()
+print(dict3)
