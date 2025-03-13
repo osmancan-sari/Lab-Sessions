@@ -6,14 +6,6 @@ Part 2: Strings
 In this part, we will investigate the strings in Python.
 """
 
-lst1 = []
-lst2 = list()
-lst3 = [1, 2, 3]
-lst4 = ["itu", "1773"]
-lst5 = ["itu", 1773]
-
-print(lst1)
-print(lst2)
-print(lst3)
-print(lst4)
-print(lst5)
+str0 = ""
+str1 = "Istanbul Technical University 1773"
+str2= """Introduction to Programming for Data Science (Python)"""

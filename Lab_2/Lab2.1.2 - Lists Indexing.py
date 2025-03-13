@@ -6,14 +6,17 @@ Part 1: Lists
 This section covers list creation and basic operations in Python.
 """
 
-lst1 = []
-lst2 = list()
-lst3 = [1, 2, 3]
-lst4 = ["itu", "1773"]
-lst5 = ["itu", 1773]
+lst = [1, 2, 3, "itu", -2, [22, 33, 44], True, 'a']
+print(lst[0])
+print(lst[-1])
+print(lst[-3])
+print(lst[-3][-2])
+print(lst[5][2])
+print(lst[6])
+print(lst[3])
+print(lst[int(2.0)])
+print(lst.index("itu"))
+print(lst.index(True))
 
-print(lst1)
-print(lst2)
-print(lst3)
-print(lst4)
-print(lst5)
+#print(lst[8])
+#print(lst[2.0])
