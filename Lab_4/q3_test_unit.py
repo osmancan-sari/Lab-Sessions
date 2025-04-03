@@ -1,5 +1,5 @@
 import unittest
-from decryption import decrypt_sentence
+from exercise_5_mockup_recursive import decrypt_sentence
 
 class TestDecryption(unittest.TestCase):
 
