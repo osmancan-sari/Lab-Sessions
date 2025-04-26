@@ -2,8 +2,8 @@
 # YZV 102E/104E 24-25 Spring Term Midterm Exam Q2
 ##############################################
 
-# Name Surname: Osmancan Sarı
-# Student ID: 150230728
+# Name Surname:
+# Student ID:
 
 ###################################
 # DO NOT ADD ANY IMPORTS
@@ -36,25 +36,26 @@ def search_words_in_puzzle(puzzle, vocabulary_file):
     found_words = [] # Do not change this line
 
     ### --- YOUR CODE HERE --- ###
-    f = open(vocabulary_file)
-    words_to_find = []
-    for line in f:
-        words_to_find.append(line.strip())
-     
-    puzzle_vertical = ["","","","","","","",""]
-    for line in puzzle:
-        for i in range(0,len(line)):
-            puzzle_vertical[i] += line[i]
-    for word in words_to_find:
-        for line_number in range(0, len(puzzle)):
-            for index in range(0, len(puzzle[line_number])-len(word)+1):
-                if puzzle[line_number][index:index+len(word)] == word:
-                    found_words.append((word, line_number, index, "H"))
-        for line_number in range(0, len(puzzle_vertical)):
-            for index in range(0, len(puzzle_vertical[line_number])-len(word)+1):
-                if puzzle_vertical[line_number][index:index+len(word)] == word:
-                    found_words.append((word, index, line_number, "V"))
-         
+    with open(vocabulary_file, "r") as f:
+        words = list(f.readlines())
+        words = [word.replace("\n", "") for word in words]
+
+    for i in range(len(puzzle)):
+        for j in range(len(puzzle[0])):
+            # Horizontal search
+            for end in range(j + 1, len(puzzle[0]) + 1):
+                potential_word = puzzle[i][j:end]
+                if potential_word in words:
+                    found_words.append((potential_word, i, j, "H"))
+            # Vertical search
+            potential_word = puzzle[i][j]
+            if potential_word in words:
+                found_words.append((potential_word, i, j, "V")) # One letter word option
+            for end in range(i + 1, len(puzzle)): # The rest of the length options
+                potential_word += puzzle[end][j]
+                if potential_word in words:
+                    found_words.append((potential_word, i, j, "V"))
+
     ### --- END OF YOUR CODE ---
     return found_words
 

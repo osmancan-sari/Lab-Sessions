@@ -2,33 +2,28 @@
 # YZV 102E/104E 23-24 Spring Term Midterm 1 Q3
 ##############################################
 
-# Name Surname: Osmancan Sarı
-# Student ID: 150230728
+# Name Surname:
+# Student ID:
 
 ###################################
 # DO NOT ADD ANY ADDITIONAL IMPORTS
 
 def mirror_encode(word):
-    left_side = ""
-    right_side = ""
-    word_len = len(word)
-    if word_len <= 1:
+    ### --- YOUR CODE HERE --- ###
+    if len(word) < 2:
         return ""
+    leftmost = word[0]
+    rightmost = word[-1]
+    if leftmost == rightmost:
+        return mirror_encode(word[1:-1])
     else:
-        if word[0] != word[-1]:
-            left_side += word[-1] + word[0]
-            right_side += word[0] + word[-1]
-
-    
-    return left_side + mirror_encode(word[1:-1]) + right_side
+        return rightmost + leftmost + mirror_encode(word[1:-1]) + leftmost + rightmost
 
 
 def is_palindrome(word):
-    encoded_word = mirror_encode(word)
-    if len(encoded_word) <= 1:
-        return True
-    else:
-        return False
+    ### --- YOUR CODE HERE --- ###
+    return len(mirror_encode(word)) == 0
+    # return mirror_encode(word) == ""
 
 
 
