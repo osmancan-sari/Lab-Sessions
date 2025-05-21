@@ -1,5 +1,5 @@
 people = []
-with open("/Users/osmancansari/Desktop/YZV104E/Lab Sessions/Lab-Sessions/Lab_7_8/exercise_2/data.csv", "r") as file:
+with open("Lab_7_8\exercise_2\data.csv", "r") as file:
     for line in file.readlines():
         name, gender, age, height, weight, hair_color, eye_color = line.strip().split(",")
         people.append(
@@ -65,11 +65,3 @@ filtered_people = list(filter(lambda x: x["eye_color"] == eye_color, filtered_pe
 print(len(filtered_people))
 
 print(filtered_people)
-
-
-
-
-
-
-
-
